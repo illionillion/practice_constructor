@@ -1,3 +1,14 @@
+const newCounter = function() {//クロージャー
+  let num = 0;
+  return function() {
+    return num++;
+  }
+}
+
+const count = newCounter()
+// console.log(count())
+// console.log(count())
+
 function main(obj){
   console.log(this);
   this.speed=obj;
@@ -43,7 +54,9 @@ window.onload=function(){
     m.sum=Number(m.sum)+Number(m.speed);
 
     console.log(m.speed);
-  
+    let c=count();
+    m.count=c;
+    console.log(c);
   })
   
 }
